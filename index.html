@@ -22,8 +22,13 @@
             </button>
         </nav>
         <div class="filter filter-align collapse show" id="navbarToggleExternalContent">
-            <h1 class="text">Places</h1>
+            <h1 class="text">Locations</h1>
             <input type='text'></input>
+            <div >
+                <ul data-bind="foreach: places">
+                    <li data-bind="text: title"></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div id="map"></div>

@@ -39,7 +39,7 @@ function getPlaces(){
 
 var ViewModel = function(){
     self = this;
-    //this.places = ko.observableArray([]);
+    this.places = getPlaces();
 
 }
 
