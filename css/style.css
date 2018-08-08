@@ -10,6 +10,10 @@ body {
     height: 100%;
 }
 
+.places {
+    cursor: pointer;
+}
+
 .filter {
     float: left;
     color: #9a9da0;
