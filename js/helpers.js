@@ -32,6 +32,8 @@ const placesJson = [
 var Place = function(place){
     this.location = ko.observable(place.location);
     this.title = ko.observable(place.title);
+    this.visible = ko.observable(true);
+    this.selected = ko.observable(false);
     this.selectByTitle = function(){
         selectMarkerFromList(this.title());
     }

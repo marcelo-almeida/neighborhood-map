@@ -14,6 +14,10 @@ body {
     cursor: pointer;
 }
 
+.selected {
+    color: white;
+}
+
 .filter {
     float: left;
     color: #9a9da0;

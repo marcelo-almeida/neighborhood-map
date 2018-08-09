@@ -2,21 +2,21 @@ var map;
 var markerList = [];
 let defaultIcon;
 let selectedIcon;
+var infoWindow;
 const placesMap = getPlaces();
 
 function initMap() {
-    // Constructor creates a new map - only center and zoom are required.
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -23.555878, lng: -46.629069 },//-23.6431999,-46.8294279{ lat: 40.7413549, lng: -73.9980244 }
+        center: { lat: -23.555878, lng: -46.629069 },
         zoom: 13,
         mapTypeControl: false
     });
 
     defaultIcon = makeMarkerIcon('7f3123');
     selectedIcon = makeMarkerIcon('ff6347');
-    var infoWindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow();
 
-    placesMap().forEach(function (place) {
+    placesMap().forEach(place => {
         const location = place.location();
         const title = place.title();
         const marker = new google.maps.Marker({
@@ -32,9 +32,26 @@ function initMap() {
             this.setIcon(selectedIcon);
             showInfoWindow(this, infoWindow);
             centerMarkers();
+            selectPlaceInList(this.title);
         });
         markerList.push(marker);
     });
+}
+
+function updateMarkers() {
+    markerList.forEach(marker => {
+        placesMap().forEach(place => {
+            if(place.title() === marker.title){
+                if(place.visible()){
+                    marker.setMap(map);
+                }else{
+                    marker.setMap(null);
+                }
+            }
+        });
+    });
+    resetAllMarkers();
+    centerMarkers();
 }
 
 function showInfoWindow(marker, infoWindow) {
@@ -44,31 +61,45 @@ function showInfoWindow(marker, infoWindow) {
         infoWindow.open(map, marker);
         infoWindow.addListener('closeclick', function () {
             infoWindow.marker = null;
+            marker.clicked = false;
+            marker.setIcon(defaultIcon);
         });
     }
 }
 
 function centerMarkers() {
     var bounds = new google.maps.LatLngBounds();
-    markerList.forEach(function(marker){
+    markerList.forEach(marker => {
         bounds.extend(marker.position);
     });
     map.fitBounds(bounds);
 }
 
 function resetAllMarkers() {
-    markerList.forEach(function (maker) {
-        maker.clicked = false;
-        maker.setIcon(defaultIcon);
-    })
+    markerList.forEach(marker => {
+        marker.clicked = false;
+        marker.setIcon(defaultIcon);
+    });
+    infoWindow.marker = null;
+    infoWindow.close();
 }
 
 function selectMarkerFromList(title) {
-    markerList.forEach(function (marker) {
+    markerList.forEach(marker => {
         if (marker['title'] === title) {
             google.maps.event.trigger(marker, 'click');
         }
     })
+}
+
+function selectPlaceInList(title) {
+    placesMap().forEach(place => {
+        if(place.title() === title) {
+            place.selected(true);
+        }else {
+            place.selected(false);
+        }
+    });
 }
 
 function makeMarkerIcon(markerColor) {
