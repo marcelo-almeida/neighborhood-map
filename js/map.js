@@ -16,7 +16,7 @@ function initMap() {
 
     //set the color for default and selected markers
     defaultIcon = makeMarkerIcon('7f3123');
-    selectedIcon = makeMarkerIcon('fef888');//ff6347
+    selectedIcon = makeMarkerIcon('fef888');
     infoWindow = new google.maps.InfoWindow();
 
     //for each place existent in placesMap add a new marker to map
@@ -64,7 +64,8 @@ function updateMarkers() {
 function showInfoWindow(marker, infoWindow) {
     if (infoWindow.marker != marker) {
         infoWindow.marker = marker;
-        infoWindow.setContent('<div>' + marker.title + '</div>');
+        getInformationByLatLng(marker.position.lat(), marker.position.lng(), infoWindow, marker.title);
+        infoWindow.setContent('<h6>' + marker.title + '</h6>');
         infoWindow.open(map, marker);
         infoWindow.addListener('closeclick', function () {
             infoWindow.marker = null;
