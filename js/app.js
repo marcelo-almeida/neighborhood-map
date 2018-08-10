@@ -1,11 +1,10 @@
-var ViewModel = function () {
+const ViewModel = function () {
     self = this;
     this.places = placesMap;
     this.query = ko.observable("");
 
     this.searchPlaces = function () {
         const query = self.query().toLowerCase();
-        let matchList = [];
         self.places().forEach(place => {
             const pos = place.title().toLowerCase().search(query);
             if (pos >= 0) {
@@ -16,10 +15,10 @@ var ViewModel = function () {
             place.selected(false);
         });
         updateMarkers();
-        
+
     }
 }
 
-var vm = new ViewModel();
+const vm = new ViewModel();
 vm.query.subscribe(vm.searchPlaces);
 ko.applyBindings(vm);
