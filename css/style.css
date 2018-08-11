@@ -1,0 +1,110 @@
+html,
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #343a40;
+}
+  
+#map {
+    height: 100%;
+}
+
+.places {
+    cursor: pointer;
+}
+
+.selected {
+    color: white;
+}
+
+.filter {
+    float: left;
+    color: #9a9da0;
+}
+
+
+@media screen and (max-width: 400px) {
+    .filter-align {
+        width: 30%;
+        font-size: 0.45em;
+        margin-left: 1%;
+    }
+
+    .text {
+        font-size: 1.0rem;
+    } 
+}
+
+@media screen and (min-width: 401px) and (max-width: 575px) {
+    .filter-align {
+        width: 31%;
+        font-size: 0.6em;
+        margin-left: 2%;
+    }
+
+    .text {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .filter-align {
+        width: 31%;
+        font-size: 0.9em;
+        margin-left: 1%;
+    }
+
+    .text {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .filter-align {
+        width: 31%;
+        font-size: 1.1em;
+        margin-left: 1%;
+    }
+
+    .text {
+        font-size: 2.0rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .filter-align {
+        width: 31%;
+        font-size: 1.5em;
+        margin-left: 1%;
+    }
+
+    .text {
+        font-size: 2.8rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1699px){
+    .filter-align {
+        width: 31%;
+        font-size: 1.9em;
+        margin-left: 1%;
+    }
+
+    .text {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .filter-align {
+        width: 25%;
+        font-size: 1.9em;
+        margin-left: 1%;
+    }
+
+    .text {
+        font-size: 3.5rem;
+    }
+}
