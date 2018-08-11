@@ -1,6 +1,8 @@
 # Neighborhood Map
-this application contains a neighborhood map with some places of interest
-it is possible filter by name and see the number of likes
+This application contains a neighborhood map with some places of interest.
+
+
+It is possible filter by name and see the number of likes
 ## Requirements
 * Internet Browser (Chrome, Firefox, Edge...)
 ## How to run
@@ -27,3 +29,7 @@ it is used the Foursquare API to get the number of likes:
 
 
 note: this project contains a key for each api (google maps and foursquare), only for small tests and can be deactivated at any time, so it is essential to use a owner key
+
+  [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key)
+
+  [Foursquare getting started](https://developer.foursquare.com/docs/api/getting-started)
