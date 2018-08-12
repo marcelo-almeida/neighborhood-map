@@ -22,7 +22,7 @@
         </nav>
         <div class="filter filter-align collapse show" id="navbarToggleExternalContent">
             <h1 class="text">Locations</h1>
-            <input type='text' data-bind="textInput: query"></input>
+            <input type='text' data-bind="textInput: query">
             <div>
                 <ul data-bind="foreach: places">
                     <li class="places" data-bind="text: title, click: selectByTitle, visible: visible, css: { selected : selected }"></li>
