@@ -19,8 +19,6 @@ function getInformationByLatLng(lat, lng, infoWindow, title){
                     dataType: 'json',
                     success: function(res){
                         if(res.meta.code === 200){
-                            console.log(res.response.venue.likes.count);
-                            console.log(res.response.venue.description);
                             const content = setSucessContent(title, res.response.venue.likes.count);
                             infoWindow.setContent(content);
                         }

@@ -22,7 +22,7 @@
         </nav>
         <div class="filter filter-align collapse show" id="navbarToggleExternalContent">
             <h1 class="text">Locations</h1>
-            <input type='text' data-bind="textInput: query, valueUpdate: 'keyup'"></input>
+            <input type='text' data-bind="textInput: query"></input>
             <div>
                 <ul data-bind="foreach: places">
                     <li class="places" data-bind="text: title, click: selectByTitle, visible: visible, css: { selected : selected }"></li>
@@ -45,7 +45,7 @@
     <script src="js/helpers.js"></script>
     <script src="js/map.js"></script>
     <script src="js/app.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC18Mt1BGfPUDa6tsf03ILYVqYjLexZaTc&v=3&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC18Mt1BGfPUDa6tsf03ILYVqYjLexZaTc&v=3&callback=initMap" onerror="errorMaps()">
     </script>
 </body>
 
