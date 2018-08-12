@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const ViewModel = function () {
     self = this;
     this.places = placesMap;
@@ -16,8 +18,8 @@ const ViewModel = function () {
         });
         updateMarkers();
 
-    }
-}
+    };
+};
 
 const vm = new ViewModel();
 vm.query.subscribe(vm.searchPlaces);

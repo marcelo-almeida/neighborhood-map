@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 let map;
 let markerList = [];
 let defaultIcon;
@@ -97,10 +98,10 @@ function resetAllMarkers() {
 //it triggers the click event from a marker
 function selectMarkerFromList(title) {
     markerList.forEach(marker => {
-        if (marker['title'] === title) {
+        if (marker.title === title) {
             google.maps.event.trigger(marker, 'click');
         }
-    })
+    });
 }
 
 //function to highlight a place in the <ul> list

@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 //constant to store all disponible places
 const placesJson = [
     {
@@ -37,8 +38,8 @@ const Place = function (place) {
     this.selected = ko.observable(false);
     this.selectByTitle = function () {
         selectMarkerFromList(this.title());
-    }
-}
+    };
+};
 
 //get all places to use in map and model
 function getPlaces() {
